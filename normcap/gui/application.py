@@ -3,6 +3,7 @@
 import json
 import logging
 import os
+import subprocess
 import sys
 import time
 from typing import Any, TypeAlias
@@ -356,6 +357,7 @@ class NormcapApp(QtWidgets.QApplication):
             self._print_to_stdout_and_exit(text=result_text)
         elif result_text:
             self._copy_to_clipboard(text=result_text)
+            self._save_to_sequential_file(text=result_text)
         else:
             logger.warning("Nothing detected on selected region.")
 
@@ -379,6 +381,24 @@ class NormcapApp(QtWidgets.QApplication):
             logger.debug("Copy text to clipboard")
             clipboard.copy(text=text)
         self.com.on_copied_to_clipboard.emit()
+
+    def _save_to_sequential_file(self, text: str) -> None:
+        """Save captured text to sequential files capXXX.txt in ~/normcap/."""
+        save_dir = os.path.expanduser("~/normcap")
+        os.makedirs(save_dir, exist_ok=True)
+        idx = 1
+        while True:
+            filename = f"cap{idx:03d}.txt"
+            filepath = os.path.join(save_dir, filename)
+            if not os.path.exists(filepath):
+                break
+            idx += 1
+        try:
+            with open(filepath, "w", encoding="utf-8") as f:
+                f.write(text)
+            logger.info("Saved capture to %s", filepath)
+        except Exception as e:
+            logger.error("Failed to save capture to %s: %s", filepath, e)
 
     @QtCore.Slot(str)
     def _print_to_stdout_and_exit(self, text: str) -> None:
@@ -408,7 +428,8 @@ class NormcapApp(QtWidgets.QApplication):
         if delay:
             # Timeout should be high enough for visible windows to completely hide and
             # short enough to not annoy the users to much. (FTR: 0.15 was too short.)
-            time.sleep(0.5)
+            delay_sec = float(self.settings.value("capture-delay", 0.5))
+            time.sleep(delay_sec)
 
         if self.screenshot_handler_name:
             logger.debug(
@@ -427,6 +448,15 @@ class NormcapApp(QtWidgets.QApplication):
 
         for idx, image in enumerate(screens):
             utils.save_image_in_temp_folder(image, postfix=f"_raw_screen{idx}")
+
+        try:
+            subprocess.Popen(
+                ["paplay", "/usr/share/sounds/freedesktop/stereo/camera-shutter.oga"],
+                stdout=subprocess.DEVNULL,
+                stderr=subprocess.DEVNULL,
+            )
+        except Exception as e:
+            logger.debug("Failed to play shutter sound: %s", e)
 
         return screens
 

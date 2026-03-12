@@ -144,6 +144,16 @@ DEFAULT_SETTINGS = (
         nargs=None,
     ),
     Setting(
+        key="capture-delay",
+        flag="",
+        type_=float,
+        value=0.5,
+        help_="Delay before taking screenshot in seconds",
+        choices=None,
+        cli_arg=True,
+        nargs=None,
+    ),
+    Setting(
         key="has-screenshot-permission",
         flag="_p",
         type_=_parse_str_to_bool,
