@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=NormCapImproved
+Name[de]=NormCapImproved
+GenericName=OCR powered screen-capture tool
+GenericName[de]=OCR-gestütztes Tool für die Bildschirmaufzeichnung
+Comment=Extract text from an image directly into clipboard
+Comment[de]=Text aus einem Bild direkt in die clipboard extrahieren
+Exec=/opt/NormCapImproved/bin/normcap
+Icon=normcap-improved
+Terminal=false
+Type=Application
+Categories=Utility;Office;
+Keywords=Text;Extraction;OCR;

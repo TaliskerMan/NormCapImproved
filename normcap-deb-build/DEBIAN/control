@@ -1,0 +1,8 @@
+Package: normcap-improved
+Version: 0.6.0
+Architecture: amd64
+Maintainer: dynobo <dynobo@mailbox.org>
+Depends: wl-clipboard | xclip, tesseract-ocr, tesseract-ocr-eng
+Description: OCR-powered screen-capture tool (Improved)
+ NormCapImproved is an OCR powered screen-capture tool.
+ Includes delay configuration, sound notifications, and sequential save.
