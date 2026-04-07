@@ -1,0 +1,222 @@
+{
+  "$schema": "http://cyclonedx.org/schema/bom-1.6.schema.json",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:f2190acb-69f5-47ac-94a9-3090599051b5",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-04-06T21:24:14+00:00",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "manufacturer": {
+            "name": "Aqua Security Software Ltd."
+          },
+          "group": "aquasecurity",
+          "name": "trivy",
+          "version": "0.69.3"
+        }
+      ]
+    },
+    "component": {
+      "bom-ref": "6bcb4971-5b91-412a-b06d-2eb416fccce8",
+      "type": "application",
+      "name": ".",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:SchemaVersion",
+          "value": "2"
+        }
+      ]
+    }
+  },
+  "components": [
+    {
+      "bom-ref": "2980bf05-dbd5-4523-b69c-d5222d7c21b6",
+      "type": "application",
+      "name": "uv.lock",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:Class",
+          "value": "lang-pkgs"
+        },
+        {
+          "name": "aquasecurity:trivy:Type",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/babel@2.18.0",
+      "type": "library",
+      "name": "babel",
+      "version": "2.18.0",
+      "purl": "pkg:pypi/babel@2.18.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "babel@2.18.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/jeepney@0.9.0",
+      "type": "library",
+      "name": "jeepney",
+      "version": "0.9.0",
+      "purl": "pkg:pypi/jeepney@0.9.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "jeepney@0.9.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/normcap@0.6.0",
+      "type": "library",
+      "name": "normcap",
+      "version": "0.6.0",
+      "purl": "pkg:pypi/normcap@0.6.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "normcap@0.6.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/pyside6-essentials@6.10.0",
+      "type": "library",
+      "name": "pyside6-essentials",
+      "version": "6.10.0",
+      "purl": "pkg:pypi/pyside6-essentials@6.10.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "pyside6-essentials@6.10.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/shiboken6@6.10.0",
+      "type": "library",
+      "name": "shiboken6",
+      "version": "6.10.0",
+      "purl": "pkg:pypi/shiboken6@6.10.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "shiboken6@6.10.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/toml@0.10.2",
+      "type": "library",
+      "name": "toml",
+      "version": "0.10.2",
+      "purl": "pkg:pypi/toml@0.10.2",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "toml@0.10.2"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    },
+    {
+      "bom-ref": "pkg:pypi/zxing-cpp@2.3.0",
+      "type": "library",
+      "name": "zxing-cpp",
+      "version": "2.3.0",
+      "purl": "pkg:pypi/zxing-cpp@2.3.0",
+      "properties": [
+        {
+          "name": "aquasecurity:trivy:PkgID",
+          "value": "zxing-cpp@2.3.0"
+        },
+        {
+          "name": "aquasecurity:trivy:PkgType",
+          "value": "uv"
+        }
+      ]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "2980bf05-dbd5-4523-b69c-d5222d7c21b6",
+      "dependsOn": [
+        "pkg:pypi/normcap@0.6.0"
+      ]
+    },
+    {
+      "ref": "6bcb4971-5b91-412a-b06d-2eb416fccce8",
+      "dependsOn": [
+        "2980bf05-dbd5-4523-b69c-d5222d7c21b6"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/babel@2.18.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/jeepney@0.9.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/normcap@0.6.0",
+      "dependsOn": [
+        "pkg:pypi/babel@2.18.0",
+        "pkg:pypi/jeepney@0.9.0",
+        "pkg:pypi/pyside6-essentials@6.10.0",
+        "pkg:pypi/shiboken6@6.10.0",
+        "pkg:pypi/toml@0.10.2",
+        "pkg:pypi/zxing-cpp@2.3.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/pyside6-essentials@6.10.0",
+      "dependsOn": [
+        "pkg:pypi/shiboken6@6.10.0"
+      ]
+    },
+    {
+      "ref": "pkg:pypi/shiboken6@6.10.0",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/toml@0.10.2",
+      "dependsOn": []
+    },
+    {
+      "ref": "pkg:pypi/zxing-cpp@2.3.0",
+      "dependsOn": []
+    }
+  ],
+  "vulnerabilities": []
+}
