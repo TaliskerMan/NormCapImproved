@@ -15,21 +15,6 @@ class LinuxBriefcase(BuilderBase):
     binary_extension = "AppImage"
     binary_platform = "x86_64"
 
-    def _add_metainfo_to_appimage(self) -> None:
-        """Copy metainfo file with info for appimage hub."""
-        metainfo = self.BUILD_PATH / "flatpak" / "com.github.dynobo.normcap.appdata.xml"
-        target_path = (
-            self.PROJECT_PATH
-            / "build"
-            / "normcap"
-            / "linux"
-            / "appimage"
-            / "NormCap.AppDir"
-            / "usr"
-            / "share"
-        )
-        shutil.copy(metainfo, target_path / "metainfo")
-
     def _patch_briefcase_appimage_to_include_deps(self) -> None:
         """Insert code into briefcase appimage to add additional deps.
 
@@ -74,7 +59,6 @@ class LinuxBriefcase(BuilderBase):
             cmd="briefcase create linux appimage --no-input", cwd=self.PROJECT_PATH
         )
         self.run(cmd="briefcase build linux appimage", cwd=self.PROJECT_PATH)
-        self._add_metainfo_to_appimage()
         self.run(cmd="briefcase package linux appimage", cwd=self.PROJECT_PATH)
 
     def bundle_tesseract(self) -> None: ...

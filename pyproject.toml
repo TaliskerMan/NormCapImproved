@@ -397,9 +397,5 @@ name = "check changelog"
 cmd = "grep -q {new_version} CHANGELOG"
 
 [[tool.tbump.before_commit]]
-name = "check appdata.xml"
-cmd = "grep -q {new_version} bundle/flatpak/com.github.dynobo.normcap.appdata.xml"
-
-[[tool.tbump.before_commit]]
 name = "uv sync"
 cmd = "uv sync"
