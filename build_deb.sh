@@ -1,6 +1,10 @@
 #!/bin/bash
 set -e
 
+# Auto-increment version/build number
+python3 "/Users/charlestalk/AntiGravity/workflow-tools/increment_build.py" "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+
 BUILD_DIR="normcap-deb-build"
 rm -rf $BUILD_DIR
 mkdir -p $BUILD_DIR/DEBIAN
